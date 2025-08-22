@@ -1,7 +1,9 @@
+import {RouterComponent} from "./router.tsx";
+
 function App() {
     return (
         <>
-            <div className={'text-blue-400'}>app</div>
+            <RouterComponent/>
         </>
     )
 }
