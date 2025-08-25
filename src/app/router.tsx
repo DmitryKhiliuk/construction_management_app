@@ -1,5 +1,5 @@
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
-import {ROUTES} from "../shared/model/routes.ts";
+import {ROUTES} from "../shared/routes.ts";
 import AuthPage from "../pages/authPage.tsx";
 import MainPage from "../pages/MainPage.tsx";
 import {Require} from "./require.tsx";

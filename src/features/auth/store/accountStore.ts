@@ -4,8 +4,9 @@ import {devtools} from "zustand/middleware";
 import Cookies from "universal-cookie";
 import {AxiosError} from "axios";
 import {immer} from "zustand/middleware/immer";
-import {authApi} from "../api/api.ts";
-import {useUsersStore} from "./usersStore.ts";
+import {authApi} from "../api/authApi.ts"
+import {useUsersStore} from "../../../entities/users/store/usersStore.ts";
+
 
 export interface AuthTokens {
     accessToken: string;

@@ -1,11 +1,13 @@
 import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {ROUTES} from "../shared/model/routes.ts";
+import {ROUTES} from "../shared/routes.ts";
+import {useAccountStore} from "../features/auth/store/accountStore.ts";
 
 export const Require = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [isRefreshing, setIsRefreshing] = useState(false);
+    const {isAuthenticated, loading, refresh} = useAccountStore()
     useEffect(() => {
         if (/*!loading &&*/ !isAuthenticated && !isRefreshing) {
             setIsRefreshing(true);
@@ -24,5 +26,5 @@ export const Require = () => {
         return <div>Loading...</div>;
     }
 
-    return isAuthenticated ? <Outlet /> : <Navigate to={AUTH} state={{ from: location }} replace />;
+    return isAuthenticated ? <Outlet /> : <Navigate to={ROUTES.AUTH} state={{ from: location }} replace />;
 };
